@@ -21,7 +21,7 @@ const useFetchUser = () => {
             }
         }
         getUserFromServer()
-    })
+    },[])
 }
 
 export default useFetchUser

@@ -11,7 +11,7 @@ const addBook = async (req, res) => {
   }
 
   let imageUrl;
- 
+   
 
   if (req.file) {
     imageUrl = await uploadImage(req.file.path);
@@ -20,8 +20,6 @@ const addBook = async (req, res) => {
     }
     
   }
-
-  
 
  
   try {

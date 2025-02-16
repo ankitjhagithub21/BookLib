@@ -1,5 +1,6 @@
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs')
+
 cloudinary.config({
   cloud_name:process.env.CLOUD_NAME,
   api_key:process.env.CLOUDINARY_API_KEY,
@@ -16,17 +17,12 @@ const uploadImage = async (imagePath) => {
       overwrite: true,
     };
 
+
     try {
       // Upload the image
       const result = await cloudinary.uploader.upload(imagePath, options);
 
-      fs.unlink(imagePath, (err) => {
-        if (err) {
-          console.error('Error deleting file:', err);
-        } else {
-          console.log('Local file deleted successfully');
-        }
-      });
+      fs.unlink(imagePath)
       
       return result.secure_url;
     } catch (error) {
