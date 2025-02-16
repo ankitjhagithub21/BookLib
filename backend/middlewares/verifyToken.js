@@ -8,7 +8,7 @@ const verifyToken = (req,res,next) => {
         if(!token){
             return res
             .status(401)
-            .json({ success: false, message: "No token provided." });
+            .json({ success: false, message: "Unauthorized." });
         }
 
         const decoded = jwt.verify(token,process.env.JWT_SEC);
